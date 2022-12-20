@@ -1,0 +1,36 @@
+{
+	"name": "eInicio",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-button-pressed",
+					"objectClass": "Gamepad",
+					"sid": 409576839165958,
+					"parameters": {
+						"gamepad": "0",
+						"button": "button-a"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 187257422844890,
+					"parameters": {
+						"layout": "Fase 1"
+					}
+				},
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 525612039770428
+				}
+			],
+			"sid": 567065705558808
+		}
+	],
+	"sid": 108511262391089
+}

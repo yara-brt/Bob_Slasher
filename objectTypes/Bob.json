@@ -1,0 +1,166 @@
+{
+	"name": "Bob",
+	"plugin-id": "Sprite",
+	"sid": 458587398846104,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 888105182653739
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 713002896021902
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 52,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6105723,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Image Point 1",
+								"x": 0.9411764705882353,
+								"y": 0.3269230769230769
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 758478163155628,
+				"name": "Idle",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 52,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8501289,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Image Point 1",
+								"x": 0.9117647058823529,
+								"y": 0.3269230769230769
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 34,
+						"height": 52,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8042081,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Image Point 1",
+								"x": 0.8970588235294118,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 34,
+						"height": 52,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4387998,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Image Point 1",
+								"x": 0.8676470588235294,
+								"y": 0.46153846153846156
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 704837305886317,
+				"name": "Correndo",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 52,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4474846,
+						"collisionPoly": {
+							"points": [
+								0.29411764705882354,
+								0.36538461538461536,
+								0.5,
+								0.3269230769230769,
+								0.7058823529411765,
+								0.34615384615384615,
+								0.8529411764705882,
+								0.5,
+								0.8529411764705882,
+								0.7307692307692307,
+								0.5,
+								1,
+								0.23529411764705882,
+								0.6538461538461539,
+								0.23529411764705882,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 119495925158241,
+				"name": "Joga",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

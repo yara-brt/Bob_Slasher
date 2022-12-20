@@ -1,0 +1,11 @@
+{
+	"name": "Monstros",
+	"plugin-id": "Sprite",
+	"sid": 945960682897363,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Zumbi"
+	]
+}

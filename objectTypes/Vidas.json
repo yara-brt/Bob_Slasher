@@ -1,0 +1,151 @@
+{
+	"name": "Vidas",
+	"plugin-id": "Sprite",
+	"sid": 255553849857541,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "VIDA",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 836453970404567
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 288030980618144
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 37,
+						"height": 12,
+						"originX": 1.127100073046019,
+						"originY": 11.583333333333334,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2260750,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.47222222222222215,
+								1,
+								0.027777777777777752,
+								0.28560993425858294,
+								1,
+								0.8466033601168735,
+								1,
+								1,
+								1,
+								0.005113221329437553,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 37,
+						"height": 12,
+						"originX": 1.127100073046019,
+						"originY": 11.583333333333334,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7249142,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.47222222222222215,
+								1,
+								0.027777777777777752,
+								0.28560993425858294,
+								1,
+								0.8466033601168735,
+								1,
+								1,
+								1,
+								0.005113221329437553,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 37,
+						"height": 12,
+						"originX": 1.127100073046019,
+						"originY": 11.583333333333334,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9909956,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.47222222222222215,
+								1,
+								0.027777777777777752,
+								0.28560993425858294,
+								1,
+								0.8466033601168735,
+								1,
+								1,
+								1,
+								0.005113221329437553,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 37,
+						"height": 12,
+						"originX": 1.127100073046019,
+						"originY": 11.583333333333334,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6600199,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.47222222222222215,
+								1,
+								0.027777777777777752,
+								0.28560993425858294,
+								1,
+								0.8466033601168735,
+								1,
+								1,
+								1,
+								0.005113221329437553,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 399924249687878,
+				"name": "vidas",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

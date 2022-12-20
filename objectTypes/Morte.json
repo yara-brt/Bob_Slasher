@@ -1,0 +1,63 @@
+{
+	"name": "Morte",
+	"plugin-id": "Sprite",
+	"sid": 625113846731940,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 659831669080991
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 51,
+						"height": 63,
+						"originX": 0.43137254901960786,
+						"originY": 0.47619047619047616,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4745492,
+						"collisionPoly": {
+							"points": [
+								0.8235294117647058,
+								0.47619047619047616,
+								0.8823529411764706,
+								0.8253968253968254,
+								0.43137254901960786,
+								0.9365079365079365,
+								0.07843137254901966,
+								0.7619047619047619,
+								0.21568627450980393,
+								0.47619047619047616,
+								0.196078431372549,
+								0.2698412698412698,
+								0.43137254901960786,
+								0.031746031746031744,
+								0.7843137254901961,
+								0.19047619047619047
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 442847735592166,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

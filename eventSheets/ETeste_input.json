@@ -1,0 +1,43 @@
+{
+	"name": "ETeste_input",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-gamepads",
+					"objectClass": "Gamepad",
+					"sid": 203477270401953
+				}
+			],
+			"actions": [],
+			"sid": 575382778937859,
+			"disabled": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-button-pressed",
+					"objectClass": "Gamepad",
+					"sid": 424840311079410,
+					"parameters": {
+						"gamepad": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Debug_Text",
+					"sid": 684829912982968,
+					"parameters": {
+						"text": "Gamepad.LastButton(0)"
+					}
+				}
+			],
+			"sid": 941789462755263
+		}
+	],
+	"sid": 953047753253166
+}

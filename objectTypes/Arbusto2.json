@@ -1,0 +1,57 @@
+{
+	"name": "Arbusto2",
+	"plugin-id": "Sprite",
+	"sid": 369781259377036,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 49,
+						"height": 41,
+						"originX": 1.2448979591836735,
+						"originY": 1.5121951219512193,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6053457,
+						"collisionPoly": {
+							"points": [
+								0.2857142857142857,
+								0.36585365853658536,
+								1,
+								0.3902439024390244,
+								1,
+								0.5365853658536586,
+								1,
+								1,
+								1,
+								1,
+								1,
+								1,
+								0.6122448979591837,
+								1,
+								0.14285714285714285,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 442740774275733,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

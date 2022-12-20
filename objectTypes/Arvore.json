@@ -1,0 +1,57 @@
+{
+	"name": "Arvore",
+	"plugin-id": "Sprite",
+	"sid": 266891694528768,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 70,
+						"height": 80,
+						"originX": 0.9,
+						"originY": 0.2375,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6987408,
+						"collisionPoly": {
+							"points": [
+								0.22857142857142856,
+								0,
+								0.9,
+								0,
+								1,
+								0,
+								1,
+								0.2375,
+								1,
+								0.9,
+								0.9,
+								0.9125,
+								0.45714285714285713,
+								0.6125,
+								0.12857142857142856,
+								0.2375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 765098871013078,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

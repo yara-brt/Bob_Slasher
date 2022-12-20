@@ -1,0 +1,63 @@
+{
+	"name": "Lua",
+	"plugin-id": "Sprite",
+	"sid": 723026310470068,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Rotate",
+			"name": "Rotate",
+			"sid": 203077222533361
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 34,
+						"height": 34,
+						"originX": 0.4117647058823529,
+						"originY": 0.5588235294117647,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5627520,
+						"collisionPoly": {
+							"points": [
+								0.08823529411764706,
+								0.23529411764705882,
+								0.4117647058823529,
+								0.029411764705882353,
+								0.7941176470588235,
+								0.14705882352941177,
+								0.9411764705882353,
+								0.5588235294117647,
+								0.7352941176470589,
+								0.8823529411764706,
+								0.4117647058823529,
+								0.9411764705882353,
+								0.14705882352941177,
+								0.7941176470588235,
+								0.029411764705882353,
+								0.5588235294117647
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 143898579492184,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

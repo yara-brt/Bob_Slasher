@@ -1,0 +1,502 @@
+{
+	"name": "MonsterController",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Zumbi",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Zumbi",
+							"sid": 349325342247884,
+							"parameters": {
+								"instance-variable": "DIREITA"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Zumbi",
+							"sid": 729797857106426,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "right"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Zumbi",
+							"sid": 102828676688349,
+							"parameters": {
+								"animation": "\"Andando\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Zumbi",
+							"sid": 331039244775753,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 221600325813939
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Zumbi",
+							"sid": 116290527282762,
+							"parameters": {
+								"instance-variable": "DIREITA"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Zumbi",
+							"sid": 328586765689730,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "left"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Zumbi",
+							"sid": 916624071163579,
+							"parameters": {
+								"animation": "\"Andando\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Zumbi",
+							"sid": 971599734678636,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 155768520094920
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Zumbi",
+							"sid": 179206761524785,
+							"parameters": {
+								"object": "limitador_frankstein"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-instvar",
+							"objectClass": "Zumbi",
+							"sid": 268167297968268,
+							"parameters": {
+								"instance-variable": "DIREITA"
+							}
+						}
+					],
+					"sid": 937574845642855
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Foice",
+							"sid": 344523458671063,
+							"parameters": {
+								"object": "Zumbi"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 582270548281632,
+							"parameters": {
+								"variable": "JOGOU_FOICE"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Zumbi",
+							"sid": 439965135387759,
+							"parameters": {
+								"instance-variable": "VIDA",
+								"value": "1"
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Zumbi",
+							"sid": 674367003680774,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "0.5"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 162168696122922,
+							"parameters": {
+								"audio-file": "dano_monstros",
+								"loop": "not-looping",
+								"volume": "3",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 568306804194826
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Zumbi",
+							"sid": 679563510785819,
+							"parameters": {
+								"instance-variable": "VIDA",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Zumbi",
+							"sid": 393540993702133
+						}
+					],
+					"sid": 209600756379002
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "Zumbi",
+							"sid": 914887855948366
+						},
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 291346559532156,
+							"parameters": {
+								"tag": "\"zumbi\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 636191826643113,
+							"parameters": {
+								"audio-file": "zumbi",
+								"loop": "not-looping",
+								"volume": "5",
+								"stereo-pan": "0",
+								"tag-optional": "\"zumbi\""
+							}
+						}
+					],
+					"sid": 144523894577348
+				}
+			],
+			"sid": 829933469027184
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Abobora",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 562160219863759,
+							"parameters": {
+								"interval-seconds": "1"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Abobora",
+							"sid": 981282285543848,
+							"parameters": {
+								"instance-variable": "DIREITA"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Abobora",
+							"sid": 181830670917546,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "jump"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 465136355565615,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-vector-x",
+							"objectClass": "Abobora",
+							"sid": 814814933805008,
+							"behaviorType": "Platform",
+							"parameters": {
+								"vector-x": "abobora.X+60"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Abobora",
+							"sid": 968959872091540,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 870774346109454
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 191930851344445,
+							"parameters": {
+								"interval-seconds": "1"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Abobora",
+							"sid": 544138755403225,
+							"parameters": {
+								"instance-variable": "DIREITA"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Abobora",
+							"sid": 756648708207065,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "jump"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 637242930561355,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "set-vector-x",
+							"objectClass": "Abobora",
+							"sid": 194530540130953,
+							"behaviorType": "Platform",
+							"parameters": {
+								"vector-x": "200-abobora.X"
+							}
+						},
+						{
+							"id": "set-mirrored",
+							"objectClass": "Abobora",
+							"sid": 327925534266592,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 681290941327638
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Abobora",
+							"sid": 352312149599394,
+							"parameters": {
+								"object": "limitador_abobora"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-instvar",
+							"objectClass": "Abobora",
+							"sid": 217542358491295,
+							"parameters": {
+								"instance-variable": "DIREITA"
+							}
+						}
+					],
+					"sid": 137812758974980
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "Abobora",
+							"sid": 962015050701385
+						},
+						{
+							"id": "is-tag-playing",
+							"objectClass": "Audio",
+							"sid": 424012477434361,
+							"parameters": {
+								"tag": "\"abobora\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 935259910717461,
+							"parameters": {
+								"audio-file": "abobora",
+								"loop": "not-looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"abobora\""
+							}
+						}
+					],
+					"sid": 888925924609953
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Foice",
+							"sid": 611249572360215,
+							"parameters": {
+								"object": "Abobora"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 228191936010669,
+							"parameters": {
+								"variable": "JOGOU_FOICE"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Abobora",
+							"sid": 852698128779610,
+							"parameters": {
+								"instance-variable": "VIDA",
+								"value": "1"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 383521025042801,
+							"parameters": {
+								"audio-file": "dano_monstros",
+								"loop": "not-looping",
+								"volume": "2",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Abobora",
+							"sid": 861598505104143,
+							"behaviorType": "Piscar",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "0.5"
+							}
+						}
+					],
+					"sid": 945855100379311
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Abobora",
+							"sid": 416333953051924,
+							"parameters": {
+								"instance-variable": "VIDA",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Abobora",
+							"sid": 346208866529619
+						}
+					],
+					"sid": 530631774710570
+				}
+			],
+			"sid": 520048371444804
+		}
+	],
+	"sid": 505211888364812
+}

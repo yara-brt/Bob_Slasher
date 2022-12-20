@@ -1,0 +1,1521 @@
+{
+	"name": "Player",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "MODO_FALA",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 993495889350981
+		},
+		{
+			"eventType": "variable",
+			"name": "ESTA_COM_FOICE",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 277500345702327
+		},
+		{
+			"eventType": "variable",
+			"name": "JOGOU_FOICE",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 568414165563100
+		},
+		{
+			"eventType": "variable",
+			"name": "LADO",
+			"type": "string",
+			"initialValue": "\"DIREITO\"",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 578299907038697
+		},
+		{
+			"eventType": "variable",
+			"name": "VIDAS",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 785582277065331
+		},
+		{
+			"eventType": "variable",
+			"name": "COMBOS",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 679807662866804
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Controlador",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Camera",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 600935197523924
+								}
+							],
+							"actions": [],
+							"sid": 806708088171132,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "ultima_pos_y_camera",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 745957973328362
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 198224660432811,
+											"parameters": {
+												"variable": "MODO_FALA"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Camera",
+											"sid": 743023982337685,
+											"parameters": {
+												"x": "lerp (Camera.X, Bob.X, 0.05)",
+												"y": "lerp (Camera.Y, Bob.Y - 40, 0.05)"
+											}
+										}
+									],
+									"sid": 836860482123476
+								}
+							]
+						}
+					],
+					"sid": 758187413925843
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Animação",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-moving",
+									"objectClass": "Bob",
+									"sid": 657064379665055,
+									"behaviorType": "Platform"
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 421143298728177,
+									"parameters": {
+										"variable": "JOGOU_FOICE"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Bob",
+									"sid": 915611531221728,
+									"parameters": {
+										"animation": "\"Correndo\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 953898285376983
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-moving",
+									"objectClass": "Bob",
+									"sid": 467200737038231,
+									"behaviorType": "Platform",
+									"isInverted": true
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 680963738531245,
+									"parameters": {
+										"variable": "JOGOU_FOICE"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Bob",
+									"sid": 531582090919435,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 626681488480942
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "Bob",
+									"sid": 484199712094528,
+									"parameters": {
+										"animation": "\"Joga\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Bob",
+									"sid": 755930598108205,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 931344532515526
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-flipped",
+									"objectClass": "Bob",
+									"sid": 997017489060656
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 763452774847452,
+									"parameters": {
+										"variable": "LADO",
+										"value": "\"ESQUERDO\""
+									}
+								}
+							],
+							"sid": 204617221425111
+						}
+					],
+					"sid": 957527739415525
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Combate",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Joga_Machado",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 963040590985058,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 122786029875263,
+											"parameters": {
+												"variable": "ESTA_COM_FOICE"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "unpin",
+											"objectClass": "Foice",
+											"sid": 577114986630572,
+											"behaviorType": "Pin"
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 534080533942056,
+											"parameters": {
+												"variable": "ESTA_COM_FOICE",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 704444609058327,
+											"parameters": {
+												"variable": "JOGOU_FOICE",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Bob",
+											"sid": 838646066701435,
+											"parameters": {
+												"animation": "\"Joga\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 837655610800633,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 412172293737384,
+													"parameters": {
+														"first-value": "LADO",
+														"comparison": 0,
+														"second-value": "\"ESQUERDO\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "rotate-toward-angle",
+													"objectClass": "Foice",
+													"sid": 518063025436433,
+													"parameters": {
+														"degrees": "55",
+														"angle": "random(-75,80)"
+													}
+												},
+												{
+													"id": "set-speed",
+													"objectClass": "Foice",
+													"sid": 605683951959880,
+													"behaviorType": "Bullet",
+													"parameters": {
+														"speed": "-1500"
+													}
+												}
+											],
+											"sid": 460962135957811
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 490864500116435,
+													"parameters": {
+														"first-value": "LADO",
+														"comparison": 0,
+														"second-value": "\"DIREITO\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "rotate-toward-angle",
+													"objectClass": "Foice",
+													"sid": 182383181600948,
+													"parameters": {
+														"degrees": "55",
+														"angle": "random(75,85)"
+													}
+												}
+											],
+											"sid": 690882854590761
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "Pega_Machado",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionCopyPicked": false,
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 251926457113329,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 318386289107783,
+											"parameters": {
+												"variable": "ESTA_COM_FOICE"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "pin-to-object-imagepoint",
+											"objectClass": "Foice",
+											"sid": 265106111400276,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Bob",
+												"image-point": "1",
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 312325677517406,
+											"parameters": {
+												"variable": "ESTA_COM_FOICE",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 745358565994263,
+											"parameters": {
+												"variable": "JOGOU_FOICE",
+												"value": "false"
+											}
+										},
+										{
+											"id": "rotate-toward-angle",
+											"objectClass": "Foice",
+											"sid": 901057079329552,
+											"parameters": {
+												"degrees": "55",
+												"angle": "0"
+											}
+										}
+									],
+									"sid": 339565357148484
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Bob",
+									"sid": 935276270661329,
+									"parameters": {
+										"object": "Zumbi"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "shake",
+									"objectClass": "Camera",
+									"sid": 986760188245093,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"magnitude": "20",
+										"duration": "0.4",
+										"mode": "reducing-magnitude"
+									}
+								},
+								{
+									"id": "gamepad-vibrate",
+									"objectClass": "Gamepad",
+									"sid": 674662353580145,
+									"parameters": {
+										"gamepad": "0",
+										"duration": "500",
+										"weak-magnitude": "100",
+										"strong-magnitude": "100"
+									}
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 146317661896662,
+									"parameters": {
+										"variable": "VIDAS",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Bob",
+									"sid": 753249741375989,
+									"parameters": {
+										"x": "Self.X - 50",
+										"y": "Self.Y - 20"
+									}
+								}
+							],
+							"sid": 543340378682495
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Bob",
+									"sid": 628260398728217,
+									"parameters": {
+										"object": "Abobora"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "shake",
+									"objectClass": "Camera",
+									"sid": 359121894191874,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"magnitude": "20",
+										"duration": "0.4",
+										"mode": "reducing-magnitude"
+									}
+								},
+								{
+									"id": "gamepad-vibrate",
+									"objectClass": "Gamepad",
+									"sid": 751036623321141,
+									"parameters": {
+										"gamepad": "0",
+										"duration": "500",
+										"weak-magnitude": "100",
+										"strong-magnitude": "100"
+									}
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 873619350359978,
+									"parameters": {
+										"variable": "VIDAS",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Bob",
+									"sid": 498612234420632,
+									"parameters": {
+										"x": "Self.X - 50",
+										"y": "Self.Y - 20"
+									}
+								}
+							],
+							"sid": 129311218620849
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 595204253780860,
+									"parameters": {
+										"first-value": "VIDAS",
+										"comparison": 3,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 836125923459999
+								},
+								{
+									"id": "reset-global-variables",
+									"objectClass": "System",
+									"sid": 686092433475460
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 723360039817316,
+									"parameters": {
+										"variable": "trigger",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 577118356653605
+						}
+					],
+					"sid": 704323787319330
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Inputs",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-button-down",
+									"objectClass": "Gamepad",
+									"sid": 561185389530601,
+									"parameters": {
+										"gamepad": "0",
+										"button": "d-pad-left"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Bob",
+									"sid": 999251303737751,
+									"behaviorType": "Platform",
+									"parameters": {
+										"control": "left"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Bob",
+									"sid": 586174106182277,
+									"parameters": {
+										"state": "mirrored"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 907511459840199,
+									"parameters": {
+										"variable": "LADO",
+										"value": "\"ESQUERDO\""
+									}
+								}
+							],
+							"sid": 637407212449545,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 932092246048952,
+											"parameters": {
+												"variable": "ESTA_COM_FOICE"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "Foice",
+											"sid": 160382193383386,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 133603403085581
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-button-down",
+									"objectClass": "Gamepad",
+									"sid": 658676909350880,
+									"parameters": {
+										"gamepad": "0",
+										"button": "d-pad-right"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Bob",
+									"sid": 881364750092720,
+									"behaviorType": "Platform",
+									"parameters": {
+										"control": "right"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Bob",
+									"sid": 964064559303592,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 633523202148969,
+									"parameters": {
+										"variable": "LADO",
+										"value": "\"DIREITO\""
+									}
+								}
+							],
+							"sid": 237220585060580,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 260900584310618,
+											"parameters": {
+												"variable": "ESTA_COM_FOICE"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "Foice",
+											"sid": 556492829407216,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										}
+									],
+									"sid": 340216741395901
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 649700832853117,
+									"parameters": {
+										"gamepad": "0",
+										"button": "right-shoulder-trigger"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Joga_Machado",
+									"sid": 404023065735333
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 524207157428954,
+									"parameters": {
+										"audio-file": "foice",
+										"loop": "not-looping",
+										"volume": "-10",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 715054775888952,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-released",
+									"objectClass": "Gamepad",
+									"sid": 829067385364505,
+									"parameters": {
+										"gamepad": "0",
+										"button": "left-shoulder-trigger"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Pega_Machado",
+									"sid": 262078614694126
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Foice",
+									"sid": 492476636600964,
+									"parameters": {
+										"angle": "0"
+									}
+								}
+							],
+							"sid": 965073594111754,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 775226298927327,
+									"parameters": {
+										"gamepad": "0",
+										"button": "button-a"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 971589195468766,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 112389559790178,
+											"parameters": {
+												"variable": "MODO_FALA"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Passa_Dialogo",
+											"sid": 851296670350447
+										}
+									],
+									"sid": 398097008721847
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 309540856976223
+										},
+										{
+											"id": "is-on-floor",
+											"objectClass": "Bob",
+											"sid": 879182973586493,
+											"behaviorType": "Platform"
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Bob",
+											"sid": 582826592113303,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "jump"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 744876794152376,
+											"parameters": {
+												"audio-file": "pulo",
+												"loop": "not-looping",
+												"volume": "8",
+												"stereo-pan": "2",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 374216527345998
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Combo",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-button-pressed",
+											"objectClass": "Gamepad",
+											"sid": 702179258397083,
+											"parameters": {
+												"gamepad": "0",
+												"button": "button-x"
+											}
+										},
+										{
+											"id": "is-on-floor",
+											"objectClass": "Bob",
+											"sid": 574036598708096,
+											"behaviorType": "Platform"
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 446347114329666,
+											"parameters": {
+												"variable": "COMBOS",
+												"value": "1"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 961599312834536,
+											"parameters": {
+												"seconds": "0.5"
+											}
+										}
+									],
+									"sid": 815095491087401,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-enabled",
+													"objectClass": "Foice",
+													"sid": 563167238570592,
+													"behaviorType": "Rotate",
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 241236565806571
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Foice",
+													"sid": 185349256876525,
+													"parameters": {
+														"animation": "\"Combo2\""
+													},
+													"isInverted": true
+												},
+												{
+													"id": "is-animation-playing",
+													"objectClass": "Foice",
+													"sid": 103210052676688,
+													"parameters": {
+														"animation": "\"Combo3\""
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [],
+											"sid": 551368278629667
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 978129813720607,
+											"parameters": {
+												"variable": "COMBOS",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle",
+											"objectClass": "Foice",
+											"sid": 104434130649979,
+											"parameters": {
+												"angle": "55"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 284209099551358,
+											"parameters": {
+												"seconds": "0.3"
+											}
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Foice",
+											"sid": 730562178683163,
+											"parameters": {
+												"angle": "0"
+											}
+										}
+									],
+									"sid": 926113430797420
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 298276921802710,
+											"parameters": {
+												"variable": "COMBOS",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Foice",
+											"sid": 377599463961904,
+											"parameters": {
+												"animation": "\"Combo2\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 829840017965386,
+											"parameters": {
+												"seconds": "0.2"
+											}
+										},
+										{
+											"id": "stop-animation",
+											"objectClass": "Foice",
+											"sid": 918200265119404
+										}
+									],
+									"sid": 182309466132320
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 652219370674027,
+											"parameters": {
+												"variable": "COMBOS",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Foice",
+											"sid": 720294810668820,
+											"parameters": {
+												"animation": "\"Combo3\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 431748245510313,
+											"parameters": {
+												"seconds": "0.2"
+											}
+										},
+										{
+											"id": "stop-animation",
+											"objectClass": "Foice",
+											"sid": 208958916526183
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 956353694937248,
+											"parameters": {
+												"variable": "COMBOS",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 831365251945687
+								},
+								{
+									"functionName": "Combo",
+									"functionDescription": "",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionCopyPicked": false,
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Foice",
+											"sid": 451846038026570,
+											"parameters": {
+												"animation": "\"Combo2\" & Foice.combo_atual",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 529629674117212,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Foice",
+													"sid": 950933977976068,
+													"parameters": {
+														"instance-variable": "combo_atual",
+														"comparison": 2,
+														"value": "3"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "add-to-instvar",
+													"objectClass": "Foice",
+													"sid": 406268384163353,
+													"parameters": {
+														"instance-variable": "combo_atual",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 453801628062292
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 213285140971615
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Foice",
+													"sid": 654185060958690,
+													"parameters": {
+														"instance-variable": "combo_atual",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 921055289430154
+										}
+									]
+								}
+							],
+							"sid": 567207494125812
+						}
+					],
+					"sid": 543912222242902
+				},
+				{
+					"eventType": "comment",
+					"text": "Vai desativar o controle pelo teclado?"
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Test_Inputs",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 991857091072475,
+									"parameters": {
+										"key": 37
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Bob",
+									"sid": 202008378436967,
+									"behaviorType": "Platform",
+									"parameters": {
+										"control": "left"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Bob",
+									"sid": 699078058063146,
+									"parameters": {
+										"state": "mirrored"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 229756640555043,
+									"parameters": {
+										"variable": "LADO",
+										"value": "\"ESQUERDO\""
+									}
+								}
+							],
+							"sid": 101804479569484,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 684317268902748,
+											"parameters": {
+												"variable": "ESTA_COM_FOICE"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "Foice",
+											"sid": 525626580264893,
+											"parameters": {
+												"state": "mirrored"
+											}
+										}
+									],
+									"sid": 770496299862170
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 692353735861287,
+									"parameters": {
+										"key": 39
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Bob",
+									"sid": 311824266692159,
+									"behaviorType": "Platform",
+									"parameters": {
+										"control": "right"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "Bob",
+									"sid": 772887510915665,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 446866700450198,
+									"parameters": {
+										"variable": "LADO",
+										"value": "\"DIREITO\""
+									}
+								}
+							],
+							"sid": 755380376076857,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 151765517919289,
+											"parameters": {
+												"variable": "ESTA_COM_FOICE"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-mirrored",
+											"objectClass": "Foice",
+											"sid": 424491518919689,
+											"parameters": {
+												"state": "not-mirrored"
+											}
+										}
+									],
+									"sid": 762508400949668
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 679852778825921,
+									"parameters": {
+										"key": 38
+									}
+								}
+							],
+							"actions": [],
+							"sid": 430294983904287,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 263583981348448,
+											"parameters": {
+												"variable": "MODO_FALA"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Passa_Dialogo",
+											"sid": 550643494090295
+										}
+									],
+									"sid": 101873878723786
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 395058814373795
+										},
+										{
+											"id": "is-on-floor",
+											"objectClass": "Bob",
+											"sid": 919587853678941,
+											"behaviorType": "Platform"
+										}
+									],
+									"actions": [
+										{
+											"id": "simulate-control",
+											"objectClass": "Bob",
+											"sid": 629114568481565,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "jump"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 590871227058674,
+											"parameters": {
+												"audio-file": "pulo",
+												"loop": "not-looping",
+												"volume": "8",
+												"stereo-pan": "2",
+												"tag-optional": "\"\""
+											}
+										}
+									],
+									"sid": 200577573233343
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 273574164802023,
+									"parameters": {
+										"key": 32
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Joga_Machado",
+									"sid": 367755924257529
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 333146046966270,
+									"parameters": {
+										"audio-file": "foice",
+										"loop": "not-looping",
+										"volume": "-10",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Foice",
+									"sid": 400614399488592,
+									"behaviorType": "Rotate",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 376570756882736,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Foice",
+									"sid": 860216152781189,
+									"behaviorType": "Rotate",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 315377170242276
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-released",
+									"objectClass": "Keyboard",
+									"sid": 377478096229832,
+									"parameters": {
+										"key": 66
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Pega_Machado",
+									"sid": 984639745776651
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Foice",
+									"sid": 392594309577277,
+									"parameters": {
+										"angle": "0"
+									}
+								}
+							],
+							"sid": 819033248978226
+						}
+					],
+					"sid": 233945478466118
+				}
+			],
+			"sid": 927825282422216
+		}
+	],
+	"sid": 955010660185980
+}

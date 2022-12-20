@@ -1,0 +1,87 @@
+{
+	"name": "Abobora",
+	"plugin-id": "Sprite",
+	"sid": 665304748448112,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "DIREITA",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 639069365405207
+		},
+		{
+			"name": "VIDA",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 869434018339992
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 918760553497444
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Piscar",
+			"sid": 570354320931958
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.9375,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9759800,
+						"collisionPoly": {
+							"points": [
+								0.1484375,
+								0.19921875,
+								0.41796875,
+								0.013671875,
+								0.59375,
+								0.1484375,
+								0.82421875,
+								0.21875,
+								0.9453125,
+								0.390625,
+								0.94140625,
+								0.71875,
+								0.7578125,
+								0.93359375,
+								0.25,
+								0.9375,
+								0.01953125,
+								0.73046875,
+								0.0234375,
+								0.380859375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 214744486972575,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

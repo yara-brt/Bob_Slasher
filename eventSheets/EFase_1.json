@@ -1,0 +1,839 @@
+{
+	"name": "EFase_1",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Player"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "MonsterController"
+		},
+		{
+			"eventType": "variable",
+			"name": "index_fala_atual",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 183803793414739
+		},
+		{
+			"eventType": "variable",
+			"name": "trigger",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 222086163796089
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Sistema",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-outside-layout",
+							"objectClass": "Bob",
+							"sid": 624058723822531
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 248305322009726
+						},
+						{
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 590353267119079
+						},
+						{
+							"callFunction": "Destruir_Trigger",
+							"sid": 567986865164218
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 983552051477466,
+							"parameters": {
+								"variable": "trigger",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 218780179988936
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 775436177377377
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 992400770193452,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 510604871402754,
+							"parameters": {
+								"audio-file": "soundtrack",
+								"loop": "looping",
+								"volume": "-20",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 399157864571442
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 852441702874697
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 400616035640889,
+							"parameters": {
+								"width": "16",
+								"height": "1",
+								"depth": "1"
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 897341992715356,
+							"parameters": {
+								"x": "0",
+								"value": "\"-> Onde ? onde eu estou ?\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 583274497342941,
+							"parameters": {
+								"x": "1",
+								"value": "\"Voce morreu e sua alma foi tomada e agora pertence a mim.\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 239765612509015,
+							"parameters": {
+								"x": "2",
+								"value": "\"-> Eu morri ?\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 546634061986508,
+							"parameters": {
+								"x": "3",
+								"value": "\"Sim, George Meiles.\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 483018584435837,
+							"parameters": {
+								"x": "4",
+								"value": "\"-> Mas o meu nome e Bob ...\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 304034349213424,
+							"parameters": {
+								"x": "5",
+								"value": "\"Ah, entao voce nao e o George ?\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 548825424826546,
+							"parameters": {
+								"x": "6",
+								"value": "\"-> Nao.\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 452899259647923,
+							"parameters": {
+								"x": "7",
+								"value": "\"Droga, eu fiz isso de novo. Ok, George.\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 392688014784259,
+							"parameters": {
+								"x": "8",
+								"value": "\"-> Bob.\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 317390437724162,
+							"parameters": {
+								"x": "9",
+								"value": "\"Ta, Bob, eu preciso ir, tenho muita coisa para fazer.\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 965420721274341,
+							"parameters": {
+								"x": "10",
+								"value": "\"-> Voce nao tem como me levar de volta ?\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 849284080988848,
+							"parameters": {
+								"x": "11",
+								"value": "\"Bom ... ate posso, mas nao quero. \""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 486365284279381,
+							"parameters": {
+								"x": "12",
+								"value": "\"-> Entao o que eu devo fazer ?\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 729350625091941,
+							"parameters": {
+								"x": "13",
+								"value": "\"Bom, pegue a minha foice e vai la procurar o seu corpo.\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 404077352982132,
+							"parameters": {
+								"x": "14",
+								"value": "\"Apenas lhe digo que caso o relogio bata as 12 e voce nao conseguir o seu corpo de volta...\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "frases_primeiro_dilogo",
+							"sid": 792521833262011,
+							"parameters": {
+								"x": "15",
+								"value": "\"Voce ficara preso no mundo dos mortos PARA SEMPRE !!!\""
+							}
+						}
+					],
+					"sid": 440040246029011
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Bob",
+							"sid": 936800609991126,
+							"parameters": {
+								"object": "trigger_fala_com_a_morte"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "Bob",
+							"sid": 302150456322602,
+							"behaviorType": "Platform",
+							"parameters": {
+								"input": "start-ignoring"
+							}
+						},
+						{
+							"callFunction": "Cria_Dialogo_Da_Fase",
+							"sid": 406742856477403
+						}
+					],
+					"sid": 946305762353641
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 819174974574594
+						},
+						{
+							"id": "is-on-screen",
+							"objectClass": "Bob",
+							"sid": 951029348122901
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Vidas",
+							"sid": 985787677812271,
+							"parameters": {
+								"frame-number": "VIDAS"
+							}
+						},
+						{
+							"id": "set-x",
+							"objectClass": "Lua",
+							"sid": 832519135470146,
+							"parameters": {
+								"x": "lerp(Self.X, Bob.X - 200, 0.05)"
+							}
+						},
+						{
+							"id": "set-y",
+							"objectClass": "Lua",
+							"sid": 724368129293500,
+							"parameters": {
+								"y": "lerp(Self.Y, Bob.Y - 250, 0.05)"
+							}
+						}
+					],
+					"sid": 444620501317641
+				},
+				{
+					"eventType": "comment",
+					"text": "Eventos de conexão com controle "
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-gamepad-connected",
+							"objectClass": "Gamepad",
+							"sid": 452965103844080
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 256576288282816,
+							"parameters": {
+								"object-to-create": "Status_Controle",
+								"layer": "1",
+								"x": "LayoutHeight/2",
+								"y": "LayoutWidth/2",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 433290404539516,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Status_Controle",
+							"sid": 200717421095242
+						}
+					],
+					"sid": 976317972908983,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-gamepad-disconnected",
+							"objectClass": "Gamepad",
+							"sid": 356066124577977
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 737050570828389,
+							"parameters": {
+								"object-to-create": "Status_Controle",
+								"layer": "1",
+								"x": "LayoutHeight/2",
+								"y": "LayoutWidth/2",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Status_Controle",
+							"sid": 227736284464131,
+							"parameters": {
+								"animation": "\"Desconectado\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 407819858349712,
+							"parameters": {
+								"seconds": "0.5"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Status_Controle",
+							"sid": 391681454612837
+						}
+					],
+					"sid": 387878745420380,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Bob",
+							"sid": 818224753325149,
+							"parameters": {
+								"object": "Casa"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 648506936444062,
+							"parameters": {
+								"audio-file": "porta",
+								"loop": "not-looping",
+								"volume": "2",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "Bob",
+							"sid": 561815584189854,
+							"behaviorType": "Platform",
+							"parameters": {
+								"input": "start-ignoring"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 869937340660472,
+							"parameters": {
+								"seconds": "7"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 185226848903404,
+							"parameters": {
+								"layout": "Inicio"
+							}
+						}
+					],
+					"sid": 283039718812426
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 335458717164220,
+							"parameters": {
+								"variable": "trigger",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Destruir_Trigger",
+							"sid": 546502766927857
+						}
+					],
+					"sid": 185331439177874
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Foice",
+							"sid": 467085004850008,
+							"parameters": {
+								"object": "Tilemap"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Foice",
+							"sid": 566612299809496,
+							"parameters": {
+								"x": "-10",
+								"y": "10"
+							}
+						}
+					],
+					"sid": 164955497091508
+				}
+			],
+			"sid": 873234646059625
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Falas",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Cria_Dialogo_Da_Fase",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Seta_Frase_Atual",
+							"sid": 491912356392653
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 580420415348578,
+							"parameters": {
+								"variable": "MODO_FALA",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Dialogo",
+							"sid": 470998071162305,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "background_falas",
+							"sid": 648558403258678,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 965113964598533
+				},
+				{
+					"functionName": "Passa_Dialogo",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 388410477733330,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 490799717173525,
+									"parameters": {
+										"first-value": "index_fala_atual+1",
+										"comparison": 2,
+										"second-value": "frases_primeiro_dilogo.Width"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 835345673889956,
+									"parameters": {
+										"variable": "index_fala_atual",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "Seta_Frase_Atual",
+									"sid": 446276694198286
+								}
+							],
+							"sid": 412140883605945
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 958639407046104
+								}
+							],
+							"actions": [
+								{
+									"id": "set-ignoring-input",
+									"objectClass": "Bob",
+									"sid": 889780175740775,
+									"behaviorType": "Platform",
+									"parameters": {
+										"input": "stop-ignoring"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 550627597575932,
+									"parameters": {
+										"variable": "MODO_FALA",
+										"value": "false"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "trigger_fala_com_a_morte",
+									"sid": 841002255959625
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Dialogo",
+									"sid": 788913016706350,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "background_falas",
+									"sid": 862390549813392,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-x",
+									"objectClass": "Foice",
+									"sid": 267350060564698,
+									"parameters": {
+										"x": "lerp(Foice.X,Foice.X-70,1)"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 711964591986741,
+									"parameters": {
+										"seconds": "0.3"
+									}
+								},
+								{
+									"id": "pin-to-object-imagepoint",
+									"objectClass": "Foice",
+									"sid": 778281358160548,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "Bob",
+										"image-point": "1",
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 264774764052889,
+									"parameters": {
+										"variable": "ESTA_COM_FOICE",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 245163317339194
+						}
+					]
+				},
+				{
+					"functionName": "Seta_Frase_Atual",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Dialogo",
+							"sid": 125103839610626,
+							"parameters": {
+								"text": "frases_primeiro_dilogo.At(index_fala_atual)"
+							}
+						}
+					],
+					"sid": 570763069358784
+				}
+			],
+			"sid": 185343897963151
+		},
+		{
+			"functionName": "Destruir_Trigger",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-ignoring-input",
+					"objectClass": "Bob",
+					"sid": 322117581148131,
+					"behaviorType": "Platform",
+					"parameters": {
+						"input": "stop-ignoring"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "trigger_fala_com_a_morte",
+					"sid": 777152191932313
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 107561862068763,
+					"parameters": {
+						"variable": "MODO_FALA",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "background_falas",
+					"sid": 420470566966030,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Dialogo",
+					"sid": 787117323248399,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Morte",
+					"sid": 140365831942204
+				}
+			],
+			"sid": 916519979416933
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 457722961711081,
+					"parameters": {
+						"variable": "MODO_FALA"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Camera",
+					"sid": 925314839899339,
+					"parameters": {
+						"x": "lerp(Camera.X,background_falas.X+3,0.4)",
+						"y": "lerp(Camera.Y,background_falas.Y+3,0.4)"
+					}
+				}
+			],
+			"sid": 339442558945122
+		}
+	],
+	"sid": 551467232614257
+}
